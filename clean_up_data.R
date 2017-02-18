@@ -8,6 +8,9 @@ encoding <- function (dataset, col_name, from, to) {
 
 dataset <- read.csv("dataset/diabetes-training.csv")
 
+# Remove empty rows
+dataset <- dataset[!is.na(dataset$encounter_id),]
+
 # Drop columns with >5% of missing data
 dataset$weight <- NULL
 dataset$medical_specialty <- NULL

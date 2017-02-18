@@ -19,7 +19,7 @@ dataset$payer_code <- NULL
 # Drop rows with unknown gender
 dataset <- dataset[dataset$gender!='Unknown/Invalid',]
 
-# TODO: encode diag-1, diag-2, diag-3 columns
+# TODO: encode race diag-1, diag-2, diag-3 columns
 
 # Encode columns
 dataset$gender <- encoding(dataset, 'gender', c('Female', 'Male'), c(1,2))

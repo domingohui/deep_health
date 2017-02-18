@@ -48,7 +48,7 @@ dataset$glimepiride.pioglitazone <- encoding(dataset, 'glimepiride.pioglitazone'
 dataset$metformin.rosiglitazone <- encoding(dataset, 'metformin.rosiglitazone', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
 dataset$change <- encoding(dataset, 'change', c('No', 'Ch'), c(0,1))
 dataset$diabetesMed <- encoding(dataset, 'diabetesMed', c('No', 'Yes'), c(0,1))
-dataset$readmitted <- encoding(dataset, 'readmitted', c( 'No', '<30', '>30'), c(0,1,2))
+dataset$readmitted <- encoding(dataset, 'readmitted', c( 'NO', '<30', '>30'), c(0,1,2))
 dataset$citoglipton <- encoding(dataset, 'citoglipton', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
 dataset$metformin.pioglitazone <- encoding(dataset, 'metformin.pioglitazone', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
 dataset$examide <- encoding(dataset, 'examide', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))

@@ -1,4 +1,4 @@
-# Need to find a way to map each value to a numeric factor in a customized order
+# TODO: Need to find a way to map each value to a numeric factor in a customized order
 encoding <- function (dataset, col_name, from, to) {
   new_col <- as.numeric(factor(dataset[[col_name]]),
                         levels = from,
@@ -6,12 +6,17 @@ encoding <- function (dataset, col_name, from, to) {
   return (new_col)
 }
 
-dataset=read.csv("dataset/diabetes-training.csv")
+dataset <- read.csv("dataset/diabetes-training.csv")
 
 # Drop columns with >5% of missing data
 dataset$weight <- NULL
 dataset$medical_specialty <- NULL
 dataset$payer_code <- NULL
+
+# Drop rows with unknown gender
+dataset <- dataset[dataset$gender!='Unknown/Invalid',]
+
+# TODO: encode diag-1, diag-2, diag-3 columns
 
 # Encode columns
 dataset$gender <- encoding(dataset, 'gender', c('Female', 'Male'), c(1,2))

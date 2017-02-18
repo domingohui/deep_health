@@ -1,3 +1,4 @@
+# Need to find a way to map each value to a numeric factor in a customized order
 encoding <- function (dataset, col_name, from, to) {
   new_col <- as.numeric(factor(dataset[[col_name]]),
                         levels = from,

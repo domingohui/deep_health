@@ -53,10 +53,10 @@ max_glu_serum
 4: >300
 
 A1Cresult
-1: >7
-2: >8
-3: None
-4: Norm
+1: None
+2: Norm
+3: >7
+4: >8
 
 metformin, repaglinide, nateglinide, chlorpropamide, glimepiride, glipizide, glyburide, pioglitazone, rosiglitazone, acarbose, miglitol, insulin, glyburide-metformin, acetohexamide, tolbutamide, troglitazone, glipizide-metformin, glimepiride-pioglitazone, metformin-rosiglitazone, tolazamide, examide, citoglipton, metformin-pioglitazone, metformin-pioglitazone
 1: No

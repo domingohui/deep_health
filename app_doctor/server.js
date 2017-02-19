@@ -24,7 +24,10 @@ app.get('/get_attributes/', (req, res) => {
 
 app.post('/send_data/', (req, res) => {
     console.log(req.body)
-    res.json();
+    res.json({
+        'admission_status': 1,
+        'discharge_disposition': 2
+    });
 });
 
 app.listen(port, (err) => {

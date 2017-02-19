@@ -17,7 +17,8 @@ const AttributeList = ({attributes, list_of_options, on_update_selection}) => {
                     header: 'action',
                     accessor: 'type',
                     render: ({value, row}) => (<AttributeActionWrapper 
-                        attr={row} 
+                        attr={row}
+                        style={{height: '200px'}}
                         list_of_options={list_of_options}
                         on_update_selection={on_update_selection}
                     />)

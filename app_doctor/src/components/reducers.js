@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION, UPDATE_SEARCH_TEXT } from './actions';
+import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION, UPDATE_SEARCH_TEXT, CLEAR_INPUT} from './actions';
 
 export const OPTIONS = 'options';
 export const NUMERIC = 'numeric';
@@ -34,6 +34,18 @@ function attributes (attributes = [], action) {
             }
         });
     }
+    else if ( action.type === CLEAR_INPUT ) {
+        return attributes.map( (attr) => {
+            // clear attribute's selected option id
+            if ( attr.type === OPTIONS ) {
+                return Object.assign( {}, attr, {selected: 0} );
+            }
+            else if (attr.type === NUMERIC) {
+                return Object.assign( {}, attr, {value: ''} );
+            }
+            return attr;
+        });
+    }
 
     return attributes;
 }
@@ -64,8 +76,7 @@ function loading (loading = true, action) {
     if ( action.type === START_FETCHING_DATA ) {
         return true;
     }
-
-    if ( action.type === DID_FETCH_DATA 
+    else if ( action.type === DID_FETCH_DATA 
         || action.type === ERROR_FETCHING_DATA) {
         return false;
     }

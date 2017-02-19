@@ -8,6 +8,7 @@ export const ERROR_FETCHING_DATA = 'ERROR_FETCHING_DATA'
 export const UPDATE_OPTION = 'UPDATE_OPTION';
 export const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 export const SEND_TO_SERVER = 'SEND_TO_SERVER';
+export const CLEAR_INPUT = 'CLEAR_INPUT';
 /***************/
 
 // Action creators
@@ -31,6 +32,12 @@ const error_fetching_data = (error) => {
         error: error
     };
 }
+
+const clear_input = () => {
+    return {
+        type: CLEAR_INPUT
+    }
+};
 
 export const update_search_text = (updated_text) => {
     return {
@@ -62,6 +69,11 @@ export const send_to_server = (url, jsondata) => {
             }
         ).then(
             (result) => {
+                // Show result
+                // Clear input
+                console.log('Successful roundtrip');
+                console.log(result)
+                dispatch(clear_input());
             },
             (error) => {
                 dispatch (error_fetching_data('Error validating the data', error));

@@ -1,9 +1,11 @@
+'use strict';
+
 const express = require('express');
 const app = express();
 const port = 5000;
 const path = require('path');
 
-const Attributes = require( './Attributes');
+const Attributes = require( './attributes');
 
 // Static files
 app.use('/static', express.static(path.join(__dirname + '/static')));

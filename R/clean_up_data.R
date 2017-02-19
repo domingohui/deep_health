@@ -1,4 +1,4 @@
-setwd('~/deep_health/dataset')
+setwd('~/deep_health/R/dataset')
 
 encoding <- function (dataset, col_name, from, to) {
   new_col <- factor(dataset[[col_name]],

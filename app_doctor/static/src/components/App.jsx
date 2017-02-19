@@ -5,11 +5,13 @@ import VisibleAttributeList from './VisibleAttributeList';
 require('materialize-css/sass/materialize.scss');
 var Sidebar = require('react-sidebar').default;
 import SearchBar from './SearchBar';
-import { update_search_text } from './actions';
+import SubmitButton from './SubmitButton';
+import { send_to_server, update_search_text } from './actions';
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.store = props.store;
     }
 
     componentDidMount() {
@@ -22,9 +24,15 @@ class App extends Component {
             <div>
                 <Sidebar
                     sidebar={
-                        <SearchBar 
-                            on_key_press={update_search_text}
-                        />
+                        <div>
+                            <SearchBar 
+                                on_key_press={update_search_text}
+                            />
+                            <SubmitButton 
+                                store={this.store}
+                                send_to_server={(url, form)=>this.props.dispatch(send_to_server(url,form))}
+                            />
+                        </div>
                     }
                     docked={true}
                 >

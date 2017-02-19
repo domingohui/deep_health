@@ -5,10 +5,9 @@ import AttributeList from './AttributeList';
 const mapStateToProps = (state) => {
     let search_for = state.search_for.toLowerCase();
     return {
-        // TODO: filter by state.search_for
         attributes: state.attributes.filter( (attr) => {
-            return attr.display_name.toLowerCase().includes(search_for);
-        }),
+                return attr.display_name.toLowerCase().includes(search_for);
+            }),
         list_of_options: state.list_of_options
     };
 };

@@ -7,6 +7,7 @@ export const DID_FETCH_DATA = 'DID_FETCH_DATA';
 export const ERROR_FETCHING_DATA = 'ERROR_FETCHING_DATA'
 export const UPDATE_OPTION = 'UPDATE_OPTION';
 export const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
+export const SEND_TO_SERVER = 'SEND_TO_SERVER';
 /***************/
 
 // Action creators
@@ -47,7 +48,25 @@ export const update_option = (attr_id, option_id, updated_value='') => {
     };
 }
 
-export const fetch_data = (url) => {
+export const send_to_server = (url, formdata) => {
+    return (dispatch) => {
+        return fetch (url, {
+            method: 'POST',
+            body: formdata
+        }).then(
+            (response) => {
+                return response.json();
+            }
+        ).then(
+            (result) => {
+            },
+            (error) => {
+                dispatch (error_fetching_data('Error validating the data', error));
+            });
+    };
+};
+
+export const fetch_data = (url, attributes) => {
     return (dispatch) => {
         dispatch(start_fetching_data);
 

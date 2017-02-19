@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { send_to_server } from './actions';
 import { NUMERIC, OPTIONS } from './reducers';
 
 class Submit extends React.Component {
@@ -14,16 +13,16 @@ class Submit extends React.Component {
     on_click_send () {
         let attributes = this.store.getState().attributes;
         let list_of_options = this.store.getState().list_of_options;
-        let formdata = new FormData();
-        attributes.map( (attr) => {
+        let data = attributes.reduce( (result, attr) => {
             if ( attr.type === NUMERIC ) {
-                formdata.append(attr.name, parseInt(attr.value));
+                return Object.assign({}, result, {[attr.name]: attr.value});
             }
             else if (attr.type === OPTIONS) {
-                formdata.append(attr.name, list_of_options[attr.list_of_options_id][attr.selected]);
+                return Object.assign({}, result, {[attr.name]: attr.selected});
             }
-        });
-        this.send_to_server('/send_data/', formdata); 
+            return result;
+        }, {});
+        this.send_to_server('/send_data/', data); 
     }
 
     render() {

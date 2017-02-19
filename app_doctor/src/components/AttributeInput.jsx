@@ -12,7 +12,7 @@ class AttributeInput extends React.Component {
 
     handle_change (event) {
         this.setState({value: event.target.value});
-        this.update_attr_value(this.attr_id, null, this.state.value);
+        this.update_attr_value(this.attr_id, null, event.target.value);
     }
 
     render() {

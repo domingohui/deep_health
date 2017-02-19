@@ -5,15 +5,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports=
     {
-        entry: './static/src/index.jsx',
+        entry: './src/index.jsx',
         module: {
             loaders: [
                 {
                     test: /\.js(x)?$/,
                     loader: 'babel-loader',
                     include: [
-                        path.resolve(__dirname, './static/src'),
-                        path.resolve(__dirname, './static/src/components'),
+                        path.resolve(__dirname, './src'),
+                        path.resolve(__dirname, './src/components'),
                     ],
                     exclude: /node_modules/,
                     query: {

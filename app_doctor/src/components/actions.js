@@ -48,11 +48,14 @@ export const update_option = (attr_id, option_id, updated_value='') => {
     };
 }
 
-export const send_to_server = (url, formdata) => {
+export const send_to_server = (url, jsondata) => {
+    let headers = new Headers();
+    headers.set("Content-Type", "application/json");
     return (dispatch) => {
         return fetch (url, {
             method: 'POST',
-            body: formdata
+            headers: headers,
+            body: JSON.stringify(jsondata)
         }).then(
             (response) => {
                 return response.json();

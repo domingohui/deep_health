@@ -6,6 +6,7 @@ export const START_FETCHING_DATA = 'START_FETCHING_DATA';
 export const DID_FETCH_DATA = 'DID_FETCH_DATA';
 export const ERROR_FETCHING_DATA = 'ERROR_FETCHING_DATA'
 export const UPDATE_OPTION = 'UPDATE_OPTION';
+export const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 /***************/
 
 // Action creators
@@ -27,6 +28,13 @@ const error_fetching_data = (error) => {
     return {
         type: ERROR_FETCHING_DATA,
         error: error
+    };
+}
+
+export const update_search_text = (updated_text) => {
+    return {
+        type: UPDATE_SEARCH_TEXT,
+        updated_text: updated_text
     };
 }
 

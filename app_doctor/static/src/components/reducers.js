@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION } from './actions';
+import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION, UPDATE_SEARCH_TEXT } from './actions';
 
 export const OPTIONS = 'options';
 export const NUMERIC = 'numeric';
@@ -73,7 +73,18 @@ function loading (loading = true, action) {
     return loading;
 }
 
+function search_for (search_this = '', action) {
+    if ( typeof search_this === 'undefined' ) {
+        console.log('search for text initial state');
+        return '';
+    }
+    if ( action.type === UPDATE_SEARCH_TEXT ) {
+        return action.updated_text;
+    }
+    return search_this;
+}
+
 const AppReducer = combineReducers({
-    attributes, list_of_options, loading 
+    attributes, search_for, list_of_options, loading 
 });
 export default AppReducer;

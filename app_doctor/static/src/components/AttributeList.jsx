@@ -11,7 +11,7 @@ const AttributeList = ({attributes, list_of_options, on_update_selection}) => {
             columns={[
                 {
                     header: 'name',
-                    accessor: 'name',
+                    accessor: 'display_name',
                 },
                 {
                     header: 'action',

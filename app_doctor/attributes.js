@@ -71,181 +71,181 @@ let options_attributes = [
     {
         name: 'race',
         display_name: 'Race',
-        options: 6,
+        list_of_options_id: 6,
     },
 
     {
         name: 'gender',
         display_name: 'gender',
-        options: 4,
+        list_of_options_id: 4,
     },
 
     {
         name: 'chlorpropamide',
         display_name: 'Chlorpropamide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glimepiride',
         display_name: 'Glimepiride',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'acetohexamide',
         display_name: 'Acetohexamide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glipizide',
         display_name: 'Glipizide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glyburide',
         display_name: 'Glyburide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'tolbutamide',
         display_name: 'Tolbutamide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'pioglitazone',
         display_name: 'Pioglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'rosiglitazone',
         display_name: 'Rosiglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'acarbose',
         display_name: 'Acarbose',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'miglitol',
         display_name: 'Miglitol',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'troglitazone',
         display_name: 'Troglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'tolazamide',
         display_name: 'Tolazamide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'examide',
         display_name: 'Examide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'citoglipton',
         display_name: 'Citoglipton',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'insulin',
         display_name: 'Insulin',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glyburide-metformin',
         display_name: 'Glyburide-metformin',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glipizide-metformin',
         display_name: 'Glipizide-metformin',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'glimepiride-pioglitazone',
         display_name: 'Glimepiride-pioglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'metformin-rosiglitazone',
         display_name: 'Metformin-rosiglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'metformin-pioglitazone',
         display_name: 'Metformin-pioglitazone',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'change',
         display_name: 'Change',
-        options: 1,
+        list_of_options_id: 1,
     },
 
     {
         name: 'diabetes',
         display_name: 'Diabetes',
-        options: 1,
+        list_of_options_id: 1,
     },
 
     {
         name: 'readmitted',
         display_name: 'Readmitted',
-        options: 6,
+        list_of_options_id: 6,
     },
 
     {
         name: 'max_glu_serum',
         display_name: 'Max glucose serum',
-        options: 2,
+        list_of_options_id: 2,
     },
 
     {
         name: 'A1Cresult',
         display_name: 'A1C Result',
-        options: 3,
+        list_of_options_id: 3,
     },
 
     {
         name: 'metformin',
         display_name: 'Metformin',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'repaglinide',
         display_name: 'Repaglinide',
-        options: 0,
+        list_of_options_id: 0,
     },
 
     {
         name: 'nateglinide',
         display_name: 'Nateglinide',
-        options: 0,
+        list_of_options_id: 0,
     }
 ];
 

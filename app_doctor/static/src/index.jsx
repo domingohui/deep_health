@@ -15,7 +15,7 @@ state: {
             id: 0,
             name: 'drug',
             type: 'options',
-            options: 0, // displays list of options 
+            list_of_options_id: 0, // displays list of options 
             selected: 2
         },
         {

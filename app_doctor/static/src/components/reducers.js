@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION } from './actions';
 
-export const OPTIONS = 'OPTIONS';
-export const NUMERIC = 'NUMERIC';
+export const OPTIONS = 'options';
+export const NUMERIC = 'numeric';
 
 function attributes (attributes = [], action) {
     if ( action.type === DID_FETCH_DATA ) {
@@ -43,7 +43,7 @@ function list_of_options (list_of_options=[], action) {
         // Add list of options
         return action.list_of_options.map( (list_of_options, index) => {
             return {
-                id: 'o'+index,
+                id: index,
                 options: list_of_options
             }
         });

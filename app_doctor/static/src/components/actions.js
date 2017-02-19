@@ -30,7 +30,7 @@ const error_fetching_data = (error) => {
     };
 }
 
-export const update_option = (attr_id, option_id, update_value='') => {
+export const update_option = (attr_id, option_id, updated_value='') => {
     return {
         type: UPDATE_OPTION,
         attr_id: attr_id,

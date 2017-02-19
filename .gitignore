@@ -134,3 +134,13 @@ ENV/
 
 # Thumbnails
 ._*
+
+# Node
+node_modules/
+npm-debug.log
+
+# webpack
+app_doctor/static/build
+
+# vim
+*.swp

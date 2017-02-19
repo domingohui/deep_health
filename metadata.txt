@@ -1,4 +1,9 @@
-race (use mice package)
+race
+1:AfricanAmerican
+2: Asian
+3: Caucasian
+4: Hispanic
+5: Other
 
 gender
 1: Female
@@ -16,15 +21,34 @@ payer_code (dropped)
 
 medical_specialty (dropped)
 
-diag_1 (todo)
-
-diag_2 (todo)
-
-diag_3 (todo)
+diag_1, diag_2, diag_3
+ICD-9Codes	encoded_code
+1-139	1
+140-239	2
+240-248	3
+249-250	4
+250.01-250.99	5
+251-279	3
+280-289	6
+290-319	7
+320-359	8
+360-389	9
+390-459	10
+460-519	11
+520-579	12
+580-629	13
+630-679	14
+680-709	15
+710-739	16
+740-759	17
+760-779	18
+780-799	19
+800-999	20
+unknown	0
 
 max_glu_serum
 1: None
-2: Normal
+2: Norm
 3: >200
 4: >300
 
@@ -49,6 +73,6 @@ diabetesMed
 1: Yes
 
 readmitted
-0: <30
-1: >30
-2: NO
+0: NO
+1: <30
+2: >30

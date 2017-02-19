@@ -1,5 +1,6 @@
 # Datasets
 dataset/diabetes-training.csv
+dataset/encoded_dataset.csv
 
 # History files
 .Rhistory

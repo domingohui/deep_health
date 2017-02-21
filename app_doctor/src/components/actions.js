@@ -1,3 +1,5 @@
+'use strict';
+
 import fetch from 'isomorphic-fetch';
 require('es6-promise').polyfill();
 
@@ -9,6 +11,8 @@ export const UPDATE_OPTION = 'UPDATE_OPTION';
 export const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 export const SEND_TO_SERVER = 'SEND_TO_SERVER';
 export const CLEAR_INPUT = 'CLEAR_INPUT';
+export const DISPLAY_MODEL_RESULT = 'DISPLAY_MODEL_RESULT';
+export const CLEAR_MODEL_RESULT = 'CLEAR_MODEL_RESULT';
 /***************/
 
 // Action creators
@@ -38,6 +42,19 @@ const clear_input = () => {
         type: CLEAR_INPUT
     }
 };
+
+export const display_model_result = (result) => {
+    return {
+        type: DISPLAY_MODEL_RESULT,
+        result: result
+    }
+};
+
+export const clear_model_result = () => {
+    return {
+        type: CLEAR_MODEL_RESULT
+    }
+}
 
 export const update_search_text = (updated_text) => {
     return {
@@ -69,11 +86,10 @@ export const send_to_server = (url, jsondata) => {
             }
         ).then(
             (result) => {
-                // Show result
                 // Clear input
-                console.log('Successful roundtrip');
-                console.log(result)
                 dispatch(clear_input());
+                // Show result
+                dispatch(display_model_result(result));
             },
             (error) => {
                 dispatch (error_fetching_data('Error validating the data', error));
@@ -83,7 +99,8 @@ export const send_to_server = (url, jsondata) => {
 
 export const fetch_data = (url, attributes) => {
     return (dispatch) => {
-        dispatch(start_fetching_data);
+        console.log('fetch data');
+        //dispatch(start_fetching_data);
 
         return fetch (url).then(
             // parse Json response

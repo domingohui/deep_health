@@ -6,13 +6,14 @@ class Submit extends React.Component {
     constructor(props){
         super(props);
         this.on_click_send = this.on_click_send.bind(this);
-        this.store = props.store;
         this.send_to_server = props.send_to_server;
+        this.attributes = props.attributes;
+        this.list_of_options = props.list_of_options;
     }
 
     on_click_send () {
-        let attributes = this.store.getState().attributes;
-        let list_of_options = this.store.getState().list_of_options;
+        let attributes = this.attributes;
+        let list_of_options = this.list_of_options;
         let data = attributes.reduce( (result, attr) => {
             if ( attr.type === NUMERIC ) {
                 return Object.assign({}, result, {[attr.name]: attr.value});

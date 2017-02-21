@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION, UPDATE_SEARCH_TEXT, CLEAR_INPUT} from './actions';
+import { DID_FETCH_DATA, START_FETCHING_DATA, ERROR_FETCHING_DATA, UPDATE_OPTION, UPDATE_SEARCH_TEXT, CLEAR_INPUT, DISPLAY_MODEL_RESULT, CLEAR_MODEL_RESULT } from './actions';
 
 export const OPTIONS = 'options';
 export const NUMERIC = 'numeric';
@@ -95,7 +95,23 @@ function search_for (search_this = '', action) {
     return search_this;
 }
 
+function model_result ( result = null, action ) {
+    if (typeof result === 'undefined') {
+        console.log('returning initial state for server result');
+        return null;
+    }
+
+    if ( action.type === DISPLAY_MODEL_RESULT ) {
+        return action.result;
+    }
+    else if ( action.type === CLEAR_MODEL_RESULT ) {
+        return null;
+    }
+
+    return result;
+}
+
 const AppReducer = combineReducers({
-    attributes, search_for, list_of_options, loading 
+    attributes, model_result, search_for, list_of_options, loading 
 });
 export default AppReducer;

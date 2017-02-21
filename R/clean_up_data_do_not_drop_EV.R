@@ -70,21 +70,18 @@ dataset$weight <- NULL
 dataset$medical_specialty <- NULL
 dataset$payer_code <- NULL
 
-# Drop rows with unknown gender
-dataset <- dataset[dataset$gender!='Unknown/Invalid',]
-
-# Drop rows with unknown race
-dataset <- dataset[dataset$race!='?',]
-
 # Encode and categorize diag_1, diag_2, diag_3
 # 1) Since problem set contains no V's or E's conditions, we can ignore rows with those categories
-dataset <- dataset[!(substr(dataset$diag_1, 0,1)=='E' | substr(dataset$diag_1, 0,1)=='V'),]
-dataset <- dataset[!(substr(dataset$diag_2, 0,1)=='E' | substr(dataset$diag_2, 0,1)=='V'),]
-dataset <- dataset[!(substr(dataset$diag_3, 0,1)=='E' | substr(dataset$diag_3, 0,1)=='V'),]
+
 # 2) Replace ? with '0' category
 levels(dataset$diag_1)[match('?', levels(dataset$diag_1))] <- 0
 levels(dataset$diag_2)[match('?', levels(dataset$diag_2))] <- 0
 levels(dataset$diag_3)[match('?', levels(dataset$diag_3))] <- 0
+
+
+dataset$diag_1[(substr(dataset$diag_1, 0,1)=='E' | substr(dataset$diag_1, 0,1)=='V')] <- 0
+dataset$diag_2[(substr(dataset$diag_2, 0,1)=='E' | substr(dataset$diag_2, 0,1)=='V')] <- 0
+dataset$diag_3[(substr(dataset$diag_3, 0,1)=='E' | substr(dataset$diag_3, 0,1)=='V')] <- 0
 
 # 3) Encode categories into broader categories
 dataset$diag_1<-unlist(lapply(as.vector(dataset$diag_1),func))

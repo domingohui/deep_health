@@ -44,6 +44,8 @@ ICD-9Codes	encoded_code
 760-779	18
 780-799	19
 800-999	20
+E.. 21
+V.. 22
 unknown	0
 
 max_glu_serum

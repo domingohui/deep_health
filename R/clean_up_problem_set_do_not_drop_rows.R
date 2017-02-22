@@ -2,57 +2,71 @@ setwd('~/deep_health/R/dataset')
 
 encoding <- function (dataset, col_name, from, to) {
   new_col <- factor(dataset[[col_name]],
-                        levels = from,
-                        labels = to)
+                    levels = from,
+                    labels = to)
   return (new_col)
 }
 
 func <- function(x) {
-  x <- as.double(x)
-  if (x >= 1 && x <= 139)
-    return (1)
-  else if (x >= 140 && x <= 239)
-    return (2)
-  else if (x >= 240 && x <= 248)
-    return (3)
-  else if (x >= 249 && x <= 250)
-    return (4)
-  else if (x >= 250.01 && x <= 250.99)
-    return(5)
-  else if (x >= 251 && x <= 279)
-    return (3)
-  else if (x >= 280 && x <= 289)
-    return (6)
-  else if (x >= 290 && x <= 319)
-    return (7)
-  else if (x >= 320 && x <= 359)
-    return (8)
-  else if (x >= 360 && x <= 389)
-    return (9)
-  else if (x >= 390 && x <= 459)
-    return (10)
-  else if (x >= 460 && x <= 519)
-    return (11)
-  else if (x >= 520 && x <= 579)
-    return (12)
-  else if (x >= 580 && x <= 629)
-    return (13)
-  else if (x >= 630 && x <= 679)
-    return (14)
-  else if (x >= 680 && x <= 709)
-    return (15)
-  else if (x >= 710 && x <= 739)
-    return (16)
-  else if (x >= 740 && x <= 759)
-    return (17)
-  else if (x >= 760 && x <= 779)
-    return (18)
-  else if (x >= 780 && x <= 799)
-    return (19)
-  else if (x >= 800 && x <= 999)
-    return (20)
-  else 
-    return (0)
+  if ( substr(x,0,1) == 'E' | substr(x,0,1) == 'V' ) {
+    # Replace E's and V's
+    if (substr(x, 0,1)=='E') {
+      return (21)
+    }
+    else if (substr(x, 0,1)=='V') {
+      return (22)
+    }
+    else
+      return (NaN)
+  }
+  else{
+    # Numeric value
+    x <- as.double(x)
+    if (x >= 1 && x <= 139)
+      return (1)
+    else if (x >= 140 && x <= 239)
+      return (2)
+    else if (x >= 240 && x <= 248)
+      return (3)
+    else if (x >= 249 && x <= 250)
+      return (4)
+    else if (x >= 250.01 && x <= 250.99)
+      return(5)
+    else if (x >= 251 && x <= 279)
+      return (3)
+    else if (x >= 280 && x <= 289)
+      return (6)
+    else if (x >= 290 && x <= 319)
+      return (7)
+    else if (x >= 320 && x <= 359)
+      return (8)
+    else if (x >= 360 && x <= 389)
+      return (9)
+    else if (x >= 390 && x <= 459)
+      return (10)
+    else if (x >= 460 && x <= 519)
+      return (11)
+    else if (x >= 520 && x <= 579)
+      return (12)
+    else if (x >= 580 && x <= 629)
+      return (13)
+    else if (x >= 630 && x <= 679)
+      return (14)
+    else if (x >= 680 && x <= 709)
+      return (15)
+    else if (x >= 710 && x <= 739)
+      return (16)
+    else if (x >= 740 && x <= 759)
+      return (17)
+    else if (x >= 760 && x <= 779)
+      return (18)
+    else if (x >= 780 && x <= 799)
+      return (19)
+    else if (x >= 800 && x <= 999)
+      return (20)
+    else 
+      return (0)
+  }
 }
 
 encodeDiagCategories <- function (dataset, col_name) {
@@ -71,23 +85,15 @@ dataset$medical_specialty <- NULL
 dataset$payer_code <- NULL
 
 # Encode and categorize diag_1, diag_2, diag_3
-# 1) Since problem set contains no V's or E's conditions, we can ignore rows with those categories
-
-# 2) Replace ? with '0' category
+# 1) Replace ? with '0' category
 levels(dataset$diag_1)[match('?', levels(dataset$diag_1))] <- 0
 levels(dataset$diag_2)[match('?', levels(dataset$diag_2))] <- 0
 levels(dataset$diag_3)[match('?', levels(dataset$diag_3))] <- 0
 
-
-dataset$diag_1[(substr(dataset$diag_1, 0,1)=='E' | substr(dataset$diag_1, 0,1)=='V')] <- 0
-dataset$diag_2[(substr(dataset$diag_2, 0,1)=='E' | substr(dataset$diag_2, 0,1)=='V')] <- 0
-dataset$diag_3[(substr(dataset$diag_3, 0,1)=='E' | substr(dataset$diag_3, 0,1)=='V')] <- 0
-
-# 3) Encode categories into broader categories
+# 2) Encode categories into broader categories
 dataset$diag_1<-unlist(lapply(as.vector(dataset$diag_1),func))
 dataset$diag_2<-unlist(lapply(as.vector(dataset$diag_2),func))
 dataset$diag_3<-unlist(lapply(as.vector(dataset$diag_3),func))
-
 
 # Encode columns
 dataset$gender <- encoding(dataset, 'gender', c('Female', 'Male'), c(1,2))

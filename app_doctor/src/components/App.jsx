@@ -56,7 +56,7 @@ class App extends Component {
                                         send_to_server={this.send_to_server}
                                     />
                                     <ClearButton
-                                        clear_input={this.clear_input}
+                                        action={this.clear_input}
                                     />
                                 </div>
                             }

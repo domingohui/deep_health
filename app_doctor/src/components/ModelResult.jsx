@@ -1,13 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { clear_model_result } from './actions';
+var Sidebar = require('react-sidebar').default;
+import ClearButton from './ClearButton';
 
 const Result = ({result, clear_result}) => (
-    <div>{
-        Object.keys(result).map( (attr,index) => (
-            <div key={index}>{result[attr]}</div>
-        ))
-    }</div>
+    <div>
+        <Sidebar 
+            sidebar={
+                <ClearButton action={clear_result} />
+            }
+            docked={true}
+        >
+            {
+                Object.keys(result).map( (attr,index) => (
+                    <div key={index}>{result[attr]}</div>
+                ))
+            }
+        </Sidebar>
+    </div>
 );
 
 const mapStateToProps = (state) => {
@@ -18,7 +29,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        clear_result: () => dispatch(clear_model_result)
+        clear_result: () => dispatch(clear_model_result())
     }
 }
 

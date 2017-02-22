@@ -11,16 +11,25 @@ import ModelResult from './ModelResult';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.update_props(props);
+        this.update_props = this.update_props.bind(this);
+    }
+
+    componentDidMount() {
+        this.fetch_data('/get_attributes/');
+    }
+
+    componentWillReceiveProps (nextProps) {
+        this.update_props(nextProps);
+    }
+
+    update_props (props) {
         this.attributes = props.attributes;
         this.list_of_options = props.list_of_options;
         this.model_result = props.model_result;
         this.update_search_text = props.update_search_text;
         this.send_to_server = props.send_to_server;
         this.fetch_data = props.fetch_data;
-    }
-
-    componentDidMount() {
-        this.fetch_data('/get_attributes/');
     }
 
     render() {
@@ -59,15 +68,6 @@ class App extends Component {
     }
 }
 
-/*
-    componentWillReceiveProps (nextProps) {
-        this.setState({
-            show_model_result: (this.model_result != null)
-        });
-    }
-    */
-
-
 const mapStateToProps = (state) => {
     return {
         attributes: state.attributes,
@@ -80,7 +80,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         send_to_server: (url, data) => dispatch(send_to_server(url, data)),
         update_search_text: (data) => dispatch(update_search_text(data)),
-        fetch_data: (url) => dispatch(url)
+        fetch_data: (url) => dispatch(fetch_data(url))
     }
 }
 

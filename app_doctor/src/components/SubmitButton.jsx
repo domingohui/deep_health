@@ -6,6 +6,14 @@ class Submit extends React.Component {
     constructor(props){
         super(props);
         this.on_click_send = this.on_click_send.bind(this);
+        this.update_props = this.update_props.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.update_props(nextProps);
+    }
+
+    update_props(props) {
         this.send_to_server = props.send_to_server;
         this.attributes = props.attributes;
         this.list_of_options = props.list_of_options;

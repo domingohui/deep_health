@@ -3,7 +3,11 @@ import {connect} from 'react-redux';
 import { clear_model_result } from './actions';
 
 const Result = ({result, clear_result}) => (
-    <div>{result}</div>
+    <div>{
+        Object.keys(result).map( (attr,index) => (
+            <div key={index}>{result[attr]}</div>
+        ))
+    }</div>
 );
 
 const mapStateToProps = (state) => {

@@ -99,8 +99,7 @@ export const send_to_server = (url, jsondata) => {
 
 export const fetch_data = (url, attributes) => {
     return (dispatch) => {
-        console.log('fetch data');
-        //dispatch(start_fetching_data);
+        dispatch(start_fetching_data);
 
         return fetch (url).then(
             // parse Json response

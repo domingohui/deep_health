@@ -1,6 +1,5 @@
 # Datasets
-R/dataset/diabetes-training.csv
-R/dataset/encoded_dataset.csv
+training_model/dataset_output/
 
 # History files
 .Rhistory

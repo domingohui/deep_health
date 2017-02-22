@@ -1,4 +1,5 @@
-setwd('~/deep_health/R/dataset')
+setwd('~/deep_health/training_model/dataset')
+library(mice)
 
 encoding <- function (dataset, col_name, from, to) {
   new_col <- factor(dataset[[col_name]],
@@ -96,9 +97,9 @@ dataset$diag_2<-unlist(lapply(as.vector(dataset$diag_2),func))
 dataset$diag_3<-unlist(lapply(as.vector(dataset$diag_3),func))
 
 # Encode columns
-dataset$gender <- encoding(dataset, 'gender', c('Female', 'Male'), c(1,2))
+dataset$gender <- encoding(dataset, 'gender', c('Female', 'Male', 'Unknown/Invalid '), c(1,2,3))
 dataset$age <- encoding(dataset, 'age', unique(dataset$age), 1:length(unique(dataset$age)))
-dataset$race <- encoding(dataset, 'race', c('AfricanAmerican', 'Asian', 'Caucasian', 'Hispanic', 'Other'), c(1,2,3,4,5))
+dataset$race <- encoding(dataset, 'race', c('AfricanAmerican', 'Asian', 'Caucasian', 'Hispanic', 'Other', '?'), c(1,2,3,4,5,6))
 dataset$max_glu_serum <- encoding(dataset, 'max_glu_serum', c('None', 'Norm', '>200', '>300'), c(1,2,3,4))
 dataset$A1Cresult <- encoding(dataset, 'A1Cresult', c('None', 'Norm', '>7', '>8'), c(1,2,3,4))
 dataset$metformin <- encoding(dataset, 'metformin', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
@@ -130,3 +131,5 @@ dataset$examide <- encoding(dataset, 'examide', c('No', 'Down', 'Steady', 'Up'),
 
 # Tally total visits
 dataset$total_visits <- dataset$number_inpatient + dataset$number_outpatient + dataset$number_emergency
+
+write.csv(dataset, '../dataset_output/problem_set_cleaned_up.csv')

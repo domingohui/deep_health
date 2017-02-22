@@ -5,7 +5,8 @@ require('materialize-css/sass/materialize.scss');
 var Sidebar = require('react-sidebar').default;
 import SearchBar from './SearchBar';
 import SubmitButton from './SubmitButton';
-import { fetch_data, send_to_server, update_search_text } from './actions';
+import ClearButton from './ClearButton';
+import { fetch_data, send_to_server, update_search_text, clear_input } from './actions';
 import ModelResult from './ModelResult';
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
         this.update_search_text = props.update_search_text;
         this.send_to_server = props.send_to_server;
         this.fetch_data = props.fetch_data;
+        this.clear_input = props.clear_input;
     }
 
     render() {
@@ -52,6 +54,9 @@ class App extends Component {
                                         attributes={this.attributes}
                                         list_of_options={this.list_of_options}
                                         send_to_server={this.send_to_server}
+                                    />
+                                    <ClearButton
+                                        clear_input={this.clear_input}
                                     />
                                 </div>
                             }
@@ -80,7 +85,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         send_to_server: (url, data) => dispatch(send_to_server(url, data)),
         update_search_text: (data) => dispatch(update_search_text(data)),
-        fetch_data: (url) => dispatch(fetch_data(url))
+        fetch_data: (url) => dispatch(fetch_data(url)),
+        clear_input: () => dispatch(clear_input())
     }
 }
 

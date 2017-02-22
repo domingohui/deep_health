@@ -37,7 +37,7 @@ const error_fetching_data = (error) => {
     };
 }
 
-const clear_input = () => {
+export const clear_input = () => {
     return {
         type: CLEAR_INPUT
     }
@@ -86,8 +86,9 @@ export const send_to_server = (url, jsondata) => {
             }
         ).then(
             (result) => {
-                // Clear input
-                dispatch(clear_input());
+                // Don't clear input,
+                // so when clicking back,
+                // input can be modified and resent
                 // Show result
                 dispatch(display_model_result(result));
             },

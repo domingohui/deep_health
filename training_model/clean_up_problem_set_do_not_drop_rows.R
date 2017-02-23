@@ -129,7 +129,4 @@ dataset$citoglipton <- encoding(dataset, 'citoglipton', c('No', 'Down', 'Steady'
 dataset$metformin.pioglitazone <- encoding(dataset, 'metformin.pioglitazone', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
 dataset$examide <- encoding(dataset, 'examide', c('No', 'Down', 'Steady', 'Up'), c(1,2,3,4))
 
-# Tally total visits
-dataset$total_visits <- dataset$number_inpatient + dataset$number_outpatient + dataset$number_emergency
-
 write.csv(dataset, '../dataset_output/problem_set_cleaned_up.csv')

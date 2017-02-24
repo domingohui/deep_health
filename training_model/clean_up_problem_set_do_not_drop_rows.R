@@ -1,5 +1,4 @@
 setwd('~/deep_health/training_model/dataset')
-library(mice)
 
 encoding <- function (dataset, col_name, from, to) {
   new_col <- factor(dataset[[col_name]],

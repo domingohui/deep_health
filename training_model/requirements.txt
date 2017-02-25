@@ -2,6 +2,7 @@ appdirs==1.4.0
 appnope==0.1.0
 backports-abc==0.5
 bleach==1.5.0
+cycler==0.10.0
 decorator==4.0.11
 entrypoints==0.2.2
 html5lib==0.9999999
@@ -16,6 +17,7 @@ jupyter-client==5.0.0
 jupyter-console==5.1.0
 jupyter-core==4.3.0
 MarkupSafe==0.23
+matplotlib==2.0.0
 mistune==0.7.3
 nbconvert==5.1.1
 nbformat==4.3.0

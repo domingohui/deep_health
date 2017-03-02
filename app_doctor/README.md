@@ -1,5 +1,4 @@
-# #
-### To run the webapp
+# To run the webapp
 within [```app_doctor```](https://github.com/domingohui/deep_health/tree/master/app_doctor)
 ```
 npm install

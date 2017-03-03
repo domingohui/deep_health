@@ -4,7 +4,6 @@ import 'materialize-css/sass/materialize.scss';
 import React, { Component }from 'react'
 import {connect} from 'react-redux';
 import VisibleAttributeList from './VisibleAttributeList';
-var Sidebar = require('react-sidebar').default;
 import SearchBar from './SearchBar';
 import SubmitButton from './SubmitButton';
 import ClearButton from './ClearButton';
@@ -50,28 +49,24 @@ class App extends Component {
                 }
 
                 { this.model_result === null &&
-                        <Sidebar
-                            sidebar={
-                                <div>
-                                    <SearchBar 
-                                        on_key_press={this.update_search_text}
-                                    />
-                                    <SubmitButton 
-                                        attributes={this.attributes}
-                                        list_of_options={this.list_of_options}
-                                        send_to_server={this.send_to_server}
-                                    />
-                                    <ClearButton
-                                        action={this.clear_input}
-                                    />
-                                </div>
-                            }
-                            docked={true}
-                        >
+                        <div>
+                            <div>
+                                <SearchBar 
+                                    on_key_press={this.update_search_text}
+                                />
+                                <SubmitButton 
+                                    attributes={this.attributes}
+                                    list_of_options={this.list_of_options}
+                                    send_to_server={this.send_to_server}
+                                />
+                                <ClearButton
+                                    action={this.clear_input}
+                                />
+                            </div>
                             <div className='container'>
                                 <VisibleAttributeList />
                             </div>
-                        </Sidebar>
+                        </div>
                 }
             </div>
 

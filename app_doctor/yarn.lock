@@ -3060,10 +3060,6 @@ react-redux@^5.0.2:
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
 
-react-sidebar@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-sidebar/-/react-sidebar-2.3.0.tgz#8a86df1f7cb7a1bf98b6dd75c47c6689a1877cbe"
-
 react-table@^5.3.2:
   version "5.3.4"
   resolved "https://registry.yarnpkg.com/react-table/-/react-table-5.3.4.tgz#1a824c76a292f6f9f182fb69d57a93a6bdeb9c06"

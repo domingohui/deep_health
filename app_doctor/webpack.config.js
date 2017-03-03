@@ -21,19 +21,24 @@ module.exports=
                     }
                 },
                 {
-                    test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-                    loader : 'file-loader'
+                    test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+                    loader: 'url-loader?limit=10000'
                 },
                 {
                     test:/\.css$/,
                     loader: ExtractTextPlugin.extract({
-                        fallbackLoader: 'style-loader',
+                        fallback: 'style-loader',
                         loader: 'css-loader',
                     })
                 },
                 {
+                    test: '/materialize-css/bin/',
+                    loader: 'imports?jQuery=jquery,$=jquery,hammerjs'
+                    // Imports loader to resolve the global jquery symbol
+                },
+                {
                     test: /\.scss$/,
-                    loaders: ["style-loader", "css-loader", "sass-loader"]
+                        loaders: 'style-loader!css-loader!sass-loader!resolve-url-loader!sass-loader?sourceMap'
                 },
             ],
         },

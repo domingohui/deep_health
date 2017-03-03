@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const Attributes = require( './attributes');
 
 // Static files
-app.use('/static', express.static(path.join(__dirname + '/static')));
+app.use('/static', express.static(path.join(__dirname + '/static/build')));
 // Parse json
 app.use(bodyParser.json())
 

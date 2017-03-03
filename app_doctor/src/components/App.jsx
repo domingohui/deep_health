@@ -34,6 +34,7 @@ class App extends Component {
         this.send_to_server = props.send_to_server;
         this.fetch_data = props.fetch_data;
         this.clear_input = props.clear_input;
+        this.clear_model_result = props.clear_model_result;
     }
 
     render() {
@@ -43,7 +44,7 @@ class App extends Component {
                         <div className='container'>
                             <ModelResult 
                                 result={this.model_result}
-                                clear_result_action={clear_model_result}
+                                clear_result_action={this.clear_model_result}
                             />
                         </div>
                 }
@@ -91,7 +92,8 @@ const mapDispatchToProps = (dispatch) => {
         send_to_server: (url, data) => dispatch(send_to_server(url, data)),
         update_search_text: (data) => dispatch(update_search_text(data)),
         fetch_data: (url) => dispatch(fetch_data(url)),
-        clear_input: () => dispatch(clear_input())
+        clear_input: () => dispatch(clear_input()),
+        clear_model_result: () => dispatch(clear_model_result())
     }
 }
 

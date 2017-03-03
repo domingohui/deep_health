@@ -26,7 +26,8 @@ app.post('/send_data/', (req, res) => {
     console.log(req.body)
     res.json({
         'admission_status': 1,
-        'discharge_disposition': 2
+        'discharge_disposition': 2,
+        'patient_number': req.body.patient_nbr
     });
 });
 

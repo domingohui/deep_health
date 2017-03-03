@@ -1,12 +1,14 @@
+window.jQuery = window.$ = require('jquery');
+require('materialize-css');
+import 'materialize-css/sass/materialize.scss';
 import React, { Component }from 'react'
 import {connect} from 'react-redux';
 import VisibleAttributeList from './VisibleAttributeList';
-require('materialize-css/sass/materialize.scss');
 var Sidebar = require('react-sidebar').default;
 import SearchBar from './SearchBar';
 import SubmitButton from './SubmitButton';
 import ClearButton from './ClearButton';
-import { fetch_data, send_to_server, update_search_text, clear_input } from './actions';
+import { fetch_data, send_to_server, update_search_text, clear_input, clear_model_result} from './actions';
 import ModelResult from './ModelResult';
 
 class App extends Component {
@@ -39,7 +41,10 @@ class App extends Component {
             <div>
                 { this.model_result !== null &&
                         <div className='container'>
-                            <ModelResult />
+                            <ModelResult 
+                                result={this.model_result}
+                                clear_result_action={clear_model_result}
+                            />
                         </div>
                 }
 

@@ -7,6 +7,7 @@ class Submit extends React.Component {
         super(props);
         this.on_click_send = this.on_click_send.bind(this);
         this.update_props = this.update_props.bind(this);
+        this.update_props(props);
     }
 
     componentWillReceiveProps(nextProps) {
